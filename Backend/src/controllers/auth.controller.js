@@ -156,8 +156,8 @@ export async function onboard(req,res){
           !bio && "bio",
           !nativeLanguage && "nativeLanguage",
           !learningLanguage && "learningLanguage",
-          !Location && "Location"
-        ]
+          !location && "location"
+        ].filter(Boolean)
       });
     }
     const updatedUser=await user.findByIdAndUpdate(userId,{
@@ -167,7 +167,17 @@ export async function onboard(req,res){
     if(!updatedUser)return res.status(404).json({
       message:"User not found"
     });
-    // TODO: UPDATE THE USER INFO IN STEAM
+    try{
+      await upsertStreamUser({
+        id:updatedUser._id.toString(),
+        name:updatedUser.fullName,
+        image:updatedUser.profilePic || ""
+      })
+    }catch(error){
+      console.log("Error in updating the user during onboarding:",error.message);
+    }
+
+
     res.status(200).json({success:true,user:updatedUser});
   }
   catch(error){
