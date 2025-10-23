@@ -4,7 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authroutes from "./Routes/auth.route.js";
 import { connectDB } from "./library/database.js";
-
+import cookieParser from "cookie-parser";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,6 +25,7 @@ app.get("/api/auth/signup",(req,res)=>{
 })
 
 app.use(express.json());
+app.use(cookieParser());
 app.use("/api/auth", authroutes);
 
 app.listen(PORT, () => {
