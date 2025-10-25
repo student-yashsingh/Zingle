@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./Routes/auth.route.js";
 import userRoutes from "./Routes/auth.route.js";
+import chatRoutes from "./Routes/chat.route.js";
 import { connectDB } from "./library/database.js";
 import cookieParser from "cookie-parser";
 
