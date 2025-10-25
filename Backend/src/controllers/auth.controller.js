@@ -173,11 +173,10 @@ export async function onboard(req,res){
         name:updatedUser.fullName,
         image:updatedUser.profilePic || ""
       })
+      console.log(`Stream user updating after onboarding for ${updatedUser.fullName}`);
     }catch(error){
       console.log("Error in updating the user during onboarding:",error.message);
     }
-
-
     res.status(200).json({success:true,user:updatedUser});
   }
   catch(error){
@@ -187,3 +186,5 @@ export async function onboard(req,res){
     });
   }
 }
+
+

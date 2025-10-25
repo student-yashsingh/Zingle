@@ -2,7 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
-import authroutes from "./Routes/auth.route.js";
+import authRoutes from "./Routes/auth.route.js";
+import userRoutes from "./Routes/auth.route.js";
 import { connectDB } from "./library/database.js";
 import cookieParser from "cookie-parser";
 
@@ -26,7 +27,10 @@ app.get("/api/auth/signup",(req,res)=>{
 
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api/auth", authroutes);
+
+app.use("/api/auth", authRoutes);
+app.use("/api/users",userRoutes);
+app.use("/api/chat",chatRoutes);
 
 app.listen(PORT, () => {
   connectDB();
