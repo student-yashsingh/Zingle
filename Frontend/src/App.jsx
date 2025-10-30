@@ -7,8 +7,18 @@ import CallPage from "./pages/CallPage.jsx";
 import NotificationsPage from "./pages/NotificationsPage.jsx";
 import ChatPage from "./pages/ChatPage.jsx";
 import { Toaster, toast } from "react-hot-toast";
+import { useQuery}  from "@tanstack/react-query";
 
-const App = () => {
+
+const App = () => { 
+  const {data,isLoading,error}=useQuery({queryKey:"todos",
+    queryFn: async()=>{
+      const res=await fetch("https://jsonplaceholder.typicode.com/todos");
+      const data=await res.json();
+      return data;
+    }
+  });
+  console.log(data);
   return (
     <div className="h-screen" data-theme="sunset">
       <button
