@@ -7,6 +7,7 @@ import userRoutes from "./Routes/auth.route.js";
 import chatRoutes from "./Routes/chat.route.js";
 import { connectDB } from "./library/database.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,6 +17,15 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const app = express();
 const PORT = process.env.PORT || 5001;
+
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true   // allows the frontend to send the cookies
+}));
+
+
+
+
 app.get("/api/auth/signup",(req,res)=>{
     res.send("signup page");
     })
