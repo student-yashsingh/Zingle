@@ -1,35 +1,370 @@
 import { useState } from "react";
-import { Shapes } from 'lucide-react';
-const SignUpPage=()=>{
-    const [signupData,setSignupData] = useState({
-        fullName: "",
-        email: "",
-        password: ""
-    });
-    const handleSignup =(e) =>{
-        e.preventDefault()
-    }
-    return <div className="h-screen flex items-center justify-center p-4 sm:p-6 md:p-8" data-theme="forest">
-        <div className="border border-primary/25 flex flex-col lg:flex-row w-full max-w-5xl mx-auto bg-base-100 rounded-xl shadow-lg overflow-hidden">
+import { Video } from "lucide-react";
+import { Link } from "react-router-dom"; 
+import useSignUp from "../hooks/useSignUp";
 
-{/* SIGNUP FORM — LEFT SIDE */}
-<div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col">
-{/* LOGO */}
-<div className="mb-4 flex items-center justify-start gap-2">
-    <Shapes className="size-9 text-primary" />
-<span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-    
-</span>
-</div>
-</div>
+const SignUpPage = () => {
+  const [signupData, setSignupData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+  });
+
+  const { isPending, error, signupMutation } = useSignUp();
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    signupMutation(signupData);
+  };
+
+  return (
+    <div
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 bg-base-200/30"
+      data-theme="forest"
+    >
+      <div className="w-full max-w-6xl mx-auto">
+        <div className="relative border border-primary/25 flex flex-col lg:flex-row bg-base-100 rounded-2xl shadow-2xl overflow-hidden">
+          {/* LEFT — SIGNUP FORM */}
+          <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-10">
+            {/* Brand */}
+            <div className="mb-7 flex items-center gap-3">
+              <span className="h-10 w-10 rounded-xl grid place-items-center bg-gradient-to-br from-primary/15 to-secondary/15 ring-1 ring-primary/30">
+                <Video className="h-5 w-5 text-primary" />
+              </span>
+              <span className="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-primary to-indigo-400">
+                Zingle
+              </span>
+            </div>
+
+            {/* Copy */}
+            <div className="mb-6">
+              <h2 className="text-2xl sm:text-3xl font-semibold leading-tight">
+                Join the real-time conversation
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-base-content/70">
+                HD video calls and lightning-fast chat —{" "}
+                <span className="font-medium text-base-content">built in India, ready for the world.</span>
+              </p>
+            </div>
+
+            {/* Error */}
+            {error && (
+              <div className="alert alert-error mb-4 rounded-xl">
+                <span>{error?.response?.data?.message || "Something went wrong"}</span>
+              </div>
+            )}
+
+            {/* Form */}
+            <form onSubmit={handleSignup} className="space-y-4">
+              {/* Full Name */}
+              <label className="form-control w-full">
+                <span className="label-text">Full Name</span>
+                <input
+                  type="text"
+                  placeholder="Yash Singh"
+                  className="input input-bordered w-full rounded-xl bg-base-200/40 focus:input-primary"
+                  value={signupData.fullName}
+                  onChange={(e) =>
+                    setSignupData({ ...signupData, fullName: e.target.value })
+                  }
+                  required
+                />
+              </label>
+
+              {/* Email */}
+              <label className="form-control w-full">
+                <span className="label-text">Email</span>
+                <input
+                  type="email"
+                  placeholder="yash@zingle.app"
+                  className="input input-bordered w-full rounded-xl bg-base-200/40 focus:input-primary"
+                  value={signupData.email}
+                  onChange={(e) =>
+                    setSignupData({ ...signupData, email: e.target.value })
+                  }
+                  required
+                />
+              </label>
+
+              {/* Password */}
+              <label className="form-control w-full">
+                <div className="flex items-center justify-between">
+                  <span className="label-text">Password</span>
+                  <span className="text-xs text-base-content/60">
+                    min 6 characters
+                  </span>
+                </div>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  className="input input-bordered w-full rounded-xl bg-base-200/40 focus:input-primary"
+                  value={signupData.password}
+                  onChange={(e) =>
+                    setSignupData({ ...signupData, password: e.target.value })
+                  }
+                  required
+                />
+              </label>
+
+              {/* Terms */}
+              <label className="flex items-center gap-3 pt-1">
+                <input
+                  type="checkbox"
+                  className="checkbox checkbox-primary checkbox-sm"
+                  required
+                />
+                <span className="text-xs sm:text-sm text-base-content/70">
+                  I agree to the{" "}
+                  <a className="link link-primary">Terms</a> &{" "}
+                  <a className="link link-primary">Privacy</a>.
+                </span>
+              </label>
+
+              {/* CTA */}
+              <button
+                className="btn btn-primary w-full h-12 rounded-xl text-base font-semibold mt-1 hover:scale-[1.01] active:scale-[.99] transition-transform"
+                type="submit"
+                disabled={isPending}
+              >
+                {isPending ? (
+                  <>
+                    <span className="loading loading-spinner loading-xs"></span>
+                    Creating your account…
+                  </>
+                ) : (
+                  "Create Account"
+                )}
+              </button>
+
+              {/* Secondary */}
+              <p className="text-center text-sm text-base-content/70">
+                Already with us?{" "}
+                <Link to="/login" className="link link-secondary font-medium">
+                  Sign in
+                </Link>
+              </p>
+
+             
+            </form>
+          </div>
+
+          {/* RIGHT — VISUAL */}
+          <div className="hidden lg:flex w-full lg:w-1/2 items-center justify-center bg-gradient-to-b from-primary/10 to-secondary/10 p-6">
+            <div className="w-full max-w-md">
+              {/* Image card */}
+              <div className="relative rounded-xl overflow-hidden ring-1 ring-primary/30 bg-base-100 shadow-xl">
+                <img
+                  src="/Zingle_img2.png"
+                  alt="Real-time call preview"
+                  className="w-full h-[340px] object-cover"
+                />
+                {/* top pills */}
+                <div className="absolute top-3 right-3 backdrop-blur bg-base-100/85 border border-white/10 rounded-full px-3 py-1 text-xs shadow">
+                  Encrypted
+                </div>
+                {/* bottom gradient */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-base-100/95 to-transparent" />
+              </div>
+
+              {/* Copy */}
+              <div className="text-center mt-5 space-y-1">
+                <h3 className="text-lg font-semibold">
+                  Call anyone. Chat instantly.
+                </h3>
+                <p className="text-sm text-base-content/70">
+                  From Delhi to San Francisco — crystal-clear calls and ultra-fast messages.
+                </p>
+              </div>
+
+             
+
+              {/* Tagline */}
+              <p className="mt-3 text-center text-xs text-base-content/60">
 
 
-
-</div>
-
+                Made in India. Loved worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-}
-
-
+  );
+};
 
 export default SignUpPage;
+
+
+
+
+
+// import { useState } from "react";
+// import { ShipWheelIcon } from "lucide-react";
+// import { Link } from "react-router";
+
+// import useSignUp from "../hooks/useSignUp";
+
+// const SignUpPage = () => {
+//   const [signupData, setSignupData] = useState({
+//     fullName: "",
+//     email: "",
+//     password: "",
+//   });
+
+//   // This is how we did it at first, without using our custom hook
+//   // const queryClient = useQueryClient();
+//   // const {
+//   //   mutate: signupMutation,
+//   //   isPending,
+//   //   error,
+//   // } = useMutation({
+//   //   mutationFn: signup,
+//   //   onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
+//   // });
+
+//   // This is how we did it using our custom hook - optimized version
+//   const { isPending, error, signupMutation } = useSignUp();
+
+//   const handleSignup = (e) => {
+//     e.preventDefault();
+//     signupMutation(signupData);
+//   };
+
+//   return (
+//     <div
+//       className="h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
+//       data-theme="forest"
+//     >
+//       <div className="border border-primary/25 flex flex-col lg:flex-row w-full max-w-5xl mx-auto bg-base-100 rounded-xl shadow-lg overflow-hidden">
+//         {/* SIGNUP FORM - LEFT SIDE */}
+//         <div className="w-full lg:w-1/2 p-4 sm:p-8 flex flex-col">
+//           {/* LOGO */}
+//           <div className="mb-4 flex items-center justify-start gap-2">
+//             <ShipWheelIcon className="size-9 text-primary" />
+//             <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
+//               Streamify
+//             </span>
+//           </div>
+
+//           {/* ERROR MESSAGE IF ANY */}
+//           {error && (
+//             <div className="alert alert-error mb-4">
+//               <span>{error.response.data.message}</span>
+//             </div>
+//           )}
+
+//           <div className="w-full">
+//             <form onSubmit={handleSignup}>
+//               <div className="space-y-4">
+//                 <div>
+//                   <h2 className="text-xl font-semibold">Create an Account</h2>
+//                   <p className="text-sm opacity-70">
+//                     Join Streamify and start your language learning adventure!
+//                   </p>
+//                 </div>
+
+//                 <div className="space-y-3">
+//                   {/* FULLNAME */}
+//                   <div className="form-control w-full">
+//                     <label className="label">
+//                       <span className="label-text">Full Name</span>
+//                     </label>
+//                     <input
+//                       type="text"
+//                       placeholder="John Doe"
+//                       className="input input-bordered w-full"
+//                       value={signupData.fullName}
+//                       onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value })}
+//                       required
+//                     />
+//                   </div>
+//                   {/* EMAIL */}
+//                   <div className="form-control w-full">
+//                     <label className="label">
+//                       <span className="label-text">Email</span>
+//                     </label>
+//                     <input
+//                       type="email"
+//                       placeholder="john@gmail.com"
+//                       className="input input-bordered w-full"
+//                       value={signupData.email}
+//                       onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
+//                       required
+//                     />
+//                   </div>
+//                   {/* PASSWORD */}
+//                   <div className="form-control w-full">
+//                     <label className="label">
+//                       <span className="label-text">Password</span>
+//                     </label>
+//                     <input
+//                       type="password"
+//                       placeholder="********"
+//                       className="input input-bordered w-full"
+//                       value={signupData.password}
+//                       onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
+//                       required
+//                     />
+//                     <p className="text-xs opacity-70 mt-1">
+//                       Password must be at least 6 characters long
+//                     </p>
+//                   </div>
+
+//                   <div className="form-control">
+//                     <label className="label cursor-pointer justify-start gap-2">
+//                       <input type="checkbox" className="checkbox checkbox-sm" required />
+//                       <span className="text-xs leading-tight">
+//                         I agree to the{" "}
+//                         <span className="text-primary hover:underline">terms of service</span> and{" "}
+//                         <span className="text-primary hover:underline">privacy policy</span>
+//                       </span>
+//                     </label>
+//                   </div>
+//                 </div>
+
+//                 <button className="btn btn-primary w-full" type="submit">
+//                   {isPending ? (
+//                     <>
+//                       <span className="loading loading-spinner loading-xs"></span>
+//                       Loading...
+//                     </>
+//                   ) : (
+//                     "Create Account"
+//                   )}
+//                 </button>
+
+//                 <div className="text-center mt-4">
+//                   <p className="text-sm">
+//                     Already have an account?{" "}
+//                     <Link to="/login" className="text-primary hover:underline">
+//                       Sign in
+//                     </Link>
+//                   </p>
+//                 </div>
+//               </div>
+//             </form>
+//           </div>
+//         </div>
+
+//         {/* SIGNUP FORM - RIGHT SIDE */}
+//         <div className="hidden lg:flex w-full lg:w-1/2 bg-primary/10 items-center justify-center">
+//           <div className="max-w-md p-8">
+//             {/* Illustration */}
+//             <div className="relative aspect-square max-w-sm mx-auto">
+//               <img src="/i.png" alt="Language connection illustration" className="w-full h-full" />
+//             </div>
+
+//             <div className="text-center space-y-3 mt-6">
+//               <h2 className="text-xl font-semibold">Connect with language partners worldwide</h2>
+//               <p className="opacity-70">
+//                 Practice conversations, make friends, and improve your language skills together
+//               </p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default SignUpPage;

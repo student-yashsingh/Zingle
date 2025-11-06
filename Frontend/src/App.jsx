@@ -112,18 +112,23 @@ const App = () => {
           path="/"
           element={authUser ? <HomePage /> : <Navigate to="/login" replace />}
         />
-        <Route
+        {/* <Route
           path="/signup"
           element={!authUser ? <SignUpPage /> : <Navigate to="/" replace />}
-        />
-        <Route
+        /> */}
+        <Route path="/signup" element={<SignUpPage />} />
+
+        {/* <Route
           path="/login"
           element={!authUser ? <LoginPage /> : <Navigate to="/" replace />}
-        />
-        <Route
+        /> */}
+        <Route path="/login" element={<LoginPage />} />
+
+        {/* <Route
           path="/onboarding"
           element={authUser ? <OnBoardingPage /> : <Navigate to="/login" replace />}
-        />
+        /> */}
+        <Route path="/onboarding" element={<OnBoardingPage />} />
         <Route
           path="/call"
           element={authUser ? <CallPage /> : <Navigate to="/login" replace />}
@@ -143,7 +148,7 @@ const App = () => {
         />
       </Routes>
 
-      <Toaster />
+      
     </div>
   );
 };
