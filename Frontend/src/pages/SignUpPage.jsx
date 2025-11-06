@@ -91,7 +91,7 @@ const SignUpPage = () => {
                 <div className="flex items-center justify-between">
                   <span className="label-text">Password</span>
                   <span className="text-xs text-base-content/60">
-                    min 6 characters
+                    atleast 8 characters
                   </span>
                 </div>
                 <input
@@ -172,7 +172,7 @@ const SignUpPage = () => {
                   Call anyone. Chat instantly.
                 </h3>
                 <p className="text-sm text-base-content/70">
-                  From Delhi to San Francisco — crystal-clear calls and ultra-fast messages.
+                  From Kashmir to kanya — crystal-clear calls and ultra-fast messages.
                 </p>
               </div>
 
