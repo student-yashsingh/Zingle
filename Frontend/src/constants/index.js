@@ -296,3 +296,4 @@ export const getLanguageFlag = (lang) => {
   const code = LANGUAGE_TO_FLAG[lang.toLowerCase()];
   return code ? `https://flagcdn.com/24x18/${code}.png` : "";
 };
+

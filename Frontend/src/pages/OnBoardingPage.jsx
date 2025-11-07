@@ -39,7 +39,7 @@ const OnboardingPage = () => {
     const idx = Math.floor(Math.random() * 100) + 1;
     const randomAvatar = `https://avatar.iran.liara.run/public/${idx}.png`;
     setFormState({ ...formState, profilePic: randomAvatar });
-    toast.success("New DP ban gaya 😎");
+    toast.success("Your random avatar is ready now");
   };
 
   return (

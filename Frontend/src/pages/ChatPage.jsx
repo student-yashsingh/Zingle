@@ -35,6 +35,7 @@ const ChatPage = () => {
     queryFn: getStreamToken,
     enabled: !!authUser, // this will run only when authUser is available
   });
+  console.log("STREAM TOKEN DATA = ", tokenData);
 
   useEffect(() => {
     const initChat = async () => {

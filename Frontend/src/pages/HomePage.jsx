@@ -184,7 +184,8 @@ import {
 import { Link } from "react-router";
 import { CheckCircleIcon, MapPinIcon, UserPlusIcon, UsersIcon } from "lucide-react";
 import { capitialize } from "../lib/utils";
-import FriendCard, { getLanguageFlag } from "../components/FriendCard";
+import FriendCard from "../components/FriendCard";
+import { getLanguageFlag } from "../constants";
 import NoFriendsFound from "../components/NoFriendsFound";
 
 const HomePage = () => {
@@ -312,12 +313,22 @@ const HomePage = () => {
                       {/* LANG BADGES */}
                       <div className="flex flex-wrap gap-1.5">
                         <span className="badge badge-success badge-outline border-emerald-300">
-                          {getLanguageFlag(user.nativeLanguage)}
-                          Native: {capitialize(user.nativeLanguage)}
+                        <img
+  src={getLanguageFlag(user.nativeLanguage)}
+  alt=""
+  className="h-3 w-4 mr-1 inline-block"
+/>
+Native: {capitialize(user.nativeLanguage)}
+
                         </span>
                         <span className="badge badge-outline border-emerald-700 text-emerald-300">
-                          {getLanguageFlag(user.learningLanguage)}
-                          Learning: {capitialize(user.learningLanguage)}
+                        <img
+  src={getLanguageFlag(user.learningLanguage)}
+  alt=""
+  className="h-3 w-4 mr-1 inline-block"
+/>
+Learning: {capitialize(user.learningLanguage)}
+
                         </span>
                       </div>
 
