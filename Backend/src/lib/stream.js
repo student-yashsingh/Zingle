@@ -1,30 +1,32 @@
 import { StreamChat } from "stream-chat";
-import "dotenv/config";
 
-const apiKey = process.env.STEAM_API_KEY;
-const apiSecret = process.env.STEAM_API_SECRET;
+const apiKey = process.env.STREAM_API_KEY;
+const apiSecret = process.env.STREAM_API_SECRET;
 
-if (!apiKey || !apiSecret) {
-  console.error("Stream API key or Secret is missing");
+let streamClient = null;
+
+if (apiKey && apiSecret) {
+  streamClient = StreamChat.getInstance(apiKey, apiSecret);
+  console.log("Stream enabled");
+} else {
+  console.log("Stream disabled (no creds)");
 }
 
-const streamClient = StreamChat.getInstance(apiKey, apiSecret);
-
 export const upsertStreamUser = async (userData) => {
+  if (!streamClient) return;
   try {
     await streamClient.upsertUsers([userData]);
-    return userData;
   } catch (error) {
-    console.error("Error upserting Stream user:", error);
+    console.warn("Error upserting Stream user:", error.message);
   }
 };
 
 export const generateStreamToken = (userId) => {
+  if (!streamClient) return null;
   try {
-    // ensure userId is a string
-    const userIdStr = userId.toString();
-    return streamClient.createToken(userIdStr);
-  } catch (error) {
-    console.error("Error generating Stream token:", error);
+    return streamClient.createToken(userId.toString());
+  } catch (e) {
+    console.warn("⚠️ generateStreamToken failed:", e?.message);
+    return null;
   }
 };

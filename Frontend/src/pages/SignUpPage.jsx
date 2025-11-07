@@ -155,7 +155,7 @@ const SignUpPage = () => {
               <div className="relative rounded-xl overflow-hidden ring-1 ring-primary/30 bg-base-100 shadow-xl">
                 <img
                   src="/Zingle_img2.png"
-                  alt="Real-time call preview"
+                  alt="Real-time call preview_signup"
                   className="w-full h-[340px] object-cover"
                 />
                 {/* top pills */}
@@ -172,7 +172,7 @@ const SignUpPage = () => {
                   Call anyone. Chat instantly.
                 </h3>
                 <p className="text-sm text-base-content/70">
-                  From Kashmir to kanya — crystal-clear calls and ultra-fast messages.
+                  From Kashmir to kanyaKumari — crystal-clear calls and ultra-fast messages.
                 </p>
               </div>
 
