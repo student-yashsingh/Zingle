@@ -18,7 +18,7 @@ import { connectDB } from "./lib/database.js";
 
 const app = express();
 const PORT = process.env.PORT || 5001;
- const ___dirname=path.resolve();
+const ___dirname=path.resolve();
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -34,9 +34,9 @@ app.use("/api/users", userRoutes);
 app.use("/api/chat", chatRoutes);
 
 if(process.env.NODE_ENV === "production"){
-  app.use(express.static(path.join(___dirname,"../frontend/dist")));
+  app.use(express.static(path.join(___dirname,"../Frontend/dist")));
   app.get("*",(req,res)=>{
-    res.sendFile(path.join(___dirname,"../frontend","dist","index.html"));
+    res.sendFile(path.join(___dirname,"../Frontend","dist","index.html"));
 
   })
 }
