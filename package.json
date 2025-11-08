@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "build": "npm install && cd Frontend && npm install && npm run build",
-    "start": "cd Backend && npm install && node src/server.js"
-  },
+ "scripts": {
+  "build": "npm install && cd Backend && npm install && cd ../Frontend && npm install && npm run build",
+  "start": "cd Backend && node src/server.js"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/student-yashsingh/Zingle.git"
