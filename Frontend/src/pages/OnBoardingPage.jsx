@@ -3,7 +3,7 @@ import useAuthUser from "../hooks/useAuthUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { completeOnboarding } from "../lib/api";
-import { LoaderIcon, MapPinIcon, ShipWheelIcon, ShuffleIcon, CameraIcon } from "lucide-react";
+import { LoaderIcon, MapPinIcon, Video, ShuffleIcon, CameraIcon } from "lucide-react";
 import { LANGUAGES } from "../constants";
 
 const OnboardingPage = () => {
@@ -153,7 +153,7 @@ const OnboardingPage = () => {
             <button className="btn btn-primary w-full btn-lg mt-4" disabled={isPending} type="submit">
               {!isPending ? (
                 <>
-                  <ShipWheelIcon className="size-5 mr-2" />
+                  <Video className="size-5 mr-2" />
                   Done — Start Zingle!
                 </>
               ) : (
