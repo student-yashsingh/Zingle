@@ -2,33 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+/* global background stays controlled by daisyUI theme */
+
+/* main channel screen */
 .str-chat__channel {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #c9e8c9, #b7e7bb);
+  background: #0d0f0f; /* deep cyber dark */
   height: 100%;
 }
 
+/* main container */
 .str-chat__container {
   max-width: 1200px;
   width: 100%;
-  height: 80% !important;
+  height: 88% !important;
   margin: 0 auto !important;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 18px;
+  background: rgba(15, 18, 18, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,255,135,0.18);
+  box-shadow: 0 0 30px rgba(0,255,135,0.07);
   overflow: hidden;
 }
 
+/* message list */
 .str-chat__list {
-  background-color: #ffffff;
-  padding: 12px;
+  background: transparent;
+  padding: 18px;
 }
 
 .str-chat__list-notifications {
   display: none;
 }
 
+/* YOU → outgoing bubble */
+.str-chat__message-bubble--me {
+  background: linear-gradient(135deg,#26ff8a,#0fe275) !important;
+  color: #000 !important;
+  border-radius: 14px 14px 3px 14px !important;
+  font-size: 15px;
+  box-shadow: 0 0 8px rgba(0,255,135,0.25);
+}
+
+/* THE OTHER PERSON */
+.str-chat__message-bubble--other {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(0,255,135,0.15) !important;
+  color: #c6ffd9 !important;
+  border-radius: 14px 14px 14px 3px !important;
+  font-size: 15px;
+}
+
+/* header */
+.str-chat__header-livestream,
+.str-chat__header {
+  background: linear-gradient(to right,rgba(0,255,135,0.2),rgba(0,255,135,0.07));
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0,255,135,0.25) !important;
+  box-shadow: 0 0 12px rgba(0,255,135,0.18);
+}
+
+/* message input */
+.str-chat__message-input textarea {
+  border-radius: 14px;
+  border: 1px solid rgba(0,255,135,0.3);
+  padding: 12px 14px !important;
+  background: rgba(0,0,0,0.35) !important;
+  color: #d1ffe7 !important;
+}
+
 .str-chat__message-input {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid rgba(0,255,135,0.2);
+  background: rgba(0,0,0,0.35);
+}
+
+.str-chat__message-simple-status {
+  color: rgba(0,255,135,0.5) !important;
 }

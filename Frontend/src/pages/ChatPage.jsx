@@ -102,10 +102,11 @@ const ChatPage = () => {
           <div className="w-full relative">
             <CallButton handleVideoCall={handleVideoCall} />
             <Window>
-              <ChannelHeader />
-              <MessageList />
-              <MessageInput focus />
-            </Window>
+  <ChannelHeader />
+  <MessageList />
+  <MessageInput focus placeholder="Type something yaar..." />
+</Window>
+
           </div>
           <Thread />
         </Channel>
