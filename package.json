@@ -1,22 +1,15 @@
+
+
 {
-  "name": "zingle",
+  "name": "streamify",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
- "scripts": {
-  "build": "npm install && cd Backend && npm install && cd ../Frontend && npm install && npm run build",
-  "start": "cd Backend && node src/server.js"
-},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/student-yashsingh/Zingle.git"
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/student-yashsingh/Zingle/issues"
-  },
-  "homepage": "https://github.com/student-yashsingh/Zingle#readme"
+  "description": ""
 }
