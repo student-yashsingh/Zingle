@@ -200,7 +200,7 @@ ZINGLE/
 # 👨‍💻 Developer
 
 **Yash Singh**
-Full-Stack Developer
+Full-Stack Developer /n
 Passionate about building scalable, real-time applications and modern user experiences.
 
 ---
