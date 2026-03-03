@@ -21,7 +21,7 @@ const OnboardingPage = () => {
   const { mutate: onboardingMutation, isPending } = useMutation({
     mutationFn: completeOnboarding,
     onSuccess: () => {
-      toast.success("Profile saved 🎉");
+      toast.success("Profile saved ");
       queryClient.invalidateQueries({ queryKey: ["authUser"] });
     },
     onError: (error) => {
@@ -46,9 +46,9 @@ const OnboardingPage = () => {
       <div className="card bg-base-200 w-full max-w-3xl shadow-2xl rounded-2xl border border-primary/20">
         <div className="card-body p-8 space-y-6">
           <div className="text-center mb-4">
-            <h1 className="text-3xl font-bold">Almost done yaar 👀</h1>
+            <h1 className="text-3xl font-bold">Almost done yaar</h1>
             <p className="opacity-70 mt-1">
-              Just thoda sa personal touch — so Zingle feels like <span className="font-semibold">your</span> space ✨
+              Just thoda sa personal touch — so Zingle feels like <span className="font-semibold">your</span> space 
             </p>
           </div>
 
