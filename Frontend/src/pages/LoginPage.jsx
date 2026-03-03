@@ -154,7 +154,7 @@ const LoginPage = () => {
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`,
         { token: credentialResponse.credential },
-        { withCredentials: true }  // <- important
+        { withCredentials: true }  
       );
 
       localStorage.setItem("token", res.data.access_token);
