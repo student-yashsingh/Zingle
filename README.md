@@ -1,4 +1,4 @@
-# 🚀 ZINGLE
+#  ZINGLE
  LIVE ON - https://zingle-the-calling-and-chatting-app-3tla.onrender.com/
  
 ### Real-Time Calling, Chat & Social App
@@ -7,7 +7,7 @@
 
 ---
 
-## 🌟 Overview
+##  Overview
 
 **ZINGLE** is a modern full-stack real-time communication platform that integrates **voice & video calling, instant messaging, and social networking features** into one seamless application.
 
@@ -24,9 +24,9 @@ ZINGLE focuses on **speed, reliability, scalability, and smooth user experience*
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
-### 💻 Frontend
+###  Frontend
 
 * React.js
 * Tailwind CSS
@@ -34,7 +34,7 @@ ZINGLE focuses on **speed, reliability, scalability, and smooth user experience*
 * Stream Chat SDK
 * Stream Video SDK
 
-### ⚙️ Backend
+###  Backend
 
 * Node.js
 * Express.js
@@ -42,17 +42,17 @@ ZINGLE focuses on **speed, reliability, scalability, and smooth user experience*
 * JWT Authentication
 * bcrypt (Password Encryption)
 
-### ☁️ Deployment
+###  Deployment
 
 * Render (Cloud Hosting)
 
 ---
 
-# 🔥 Core Features
+#  Core Features
 
 ---
 
-## 🎧 Real-Time Voice & Video Calling
+##  Real-Time Voice & Video Calling
 
 * Powered by **Stream Video API**
 * Crystal-clear P2P calling
@@ -65,7 +65,7 @@ ZINGLE focuses on **speed, reliability, scalability, and smooth user experience*
 
 ---
 
-## 💬 Instant Real-Time Chat
+##  Instant Real-Time Chat
 
 * Built using **Stream Chat API**
 * Instant message delivery
@@ -76,7 +76,7 @@ ZINGLE focuses on **speed, reliability, scalability, and smooth user experience*
 
 ---
 
-## 🧑‍🤝‍🧑 Social Features
+##  Social Features
 
 * User profiles
 * Add / Follow friends
@@ -86,7 +86,7 @@ ZINGLE focuses on **speed, reliability, scalability, and smooth user experience*
 
 ---
 
-## 🔐 Secure Authentication System
+##  Secure Authentication System
 
 * JWT-based Login & Signup
 * Encrypted passwords using bcrypt
@@ -96,7 +96,7 @@ ZINGLE focuses on **speed, reliability, scalability, and smooth user experience*
 
 ---
 
-## ⚡ Optimized Data Handling
+##  Optimized Data Handling
 
 Powered by **TanStack Query** for:
 
@@ -110,7 +110,7 @@ This ensures smooth performance and minimal unnecessary API calls.
 
 ---
 
-## 🗄️ Backend Architecture
+##  Backend Architecture
 
 * RESTful API design
 * Modular route structure
@@ -127,7 +127,7 @@ Designed for scalability and clean code organization.
 
 ---
 
-# 🎨 UI / UX Design
+#  UI / UX Design
 
 * Built with **React + Tailwind CSS**
 * Fully responsive design
@@ -138,7 +138,7 @@ Designed for scalability and clean code organization.
 
 ---
 
-# 🚀 Deployment
+#  Deployment
 
 The complete application is deployed on **Render Cloud Platform**, ensuring:
 
@@ -148,7 +148,7 @@ The complete application is deployed on **Render Cloud Platform**, ensuring:
 
 ---
 
-# 📂 Project Structure (High-Level)
+#  Project Structure (High-Level)
 
 ```
 ZINGLE/
@@ -172,7 +172,7 @@ ZINGLE/
 
 ---
 
-# 🧠 Skills Demonstrated
+#  Skills Demonstrated
 
 ✔ Full-Stack MERN Development
 ✔ Real-Time Communication Integration
@@ -185,7 +185,7 @@ ZINGLE/
 
 ---
 
-# 🎯 Future Enhancements
+#  Future Enhancements
 
 * Group video calls
 * Push notifications
@@ -197,7 +197,7 @@ ZINGLE/
 
 ---
 
-# 👨‍💻 Developer
+#  Developer
 
 **Yash Singh**
 Full-Stack Developer /n
@@ -205,7 +205,7 @@ Passionate about building scalable, real-time applications and modern user exper
 
 ---
 
-# ⭐ If You Like This Project
+#  If You Like This Project
 
 Give it a ⭐ on GitHub and feel free to contribute or suggest improvements!
 
