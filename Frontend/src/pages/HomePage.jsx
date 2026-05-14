@@ -407,14 +407,11 @@ const HomePage = () => {
           color: #5de68a;
         }
 
+        /* ── FIX: Full bio, no truncation ── */
         .hp-bio {
           font-size: 13px;
           color: rgba(148,163,184,0.7);
           line-height: 1.55;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
         }
 
         /* connect button */
