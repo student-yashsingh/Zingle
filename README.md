@@ -329,10 +329,6 @@ http://localhost:5173
 
 ---
 
-## 👨‍💻 Developer
-
-**Yash Singh**
-Full-Stack Developer · Passionate about real-time systems and great user experiences.
 
 Built with ❤️ in India 🇮🇳
 
