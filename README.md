@@ -56,9 +56,9 @@ Built with the **MERN stack** and powered by **Stream's Video & Chat SDKs**, Zin
 
 ### 📹 HD Video & Voice Calling
 - Powered by **Stream Video SDK**
-- One-click peer-to-peer calls directly from the chat
+- One-click calls directly from the chat
 - In-call controls: mute, camera toggle, end call
-- Sub-10ms latency with WebRTC under the hood
+- Low-latency calls powered by Stream's WebRTC infrastructure
 
 ### 💬 Real-Time Instant Messaging
 - Built on **Stream Chat SDK**
@@ -324,7 +324,7 @@ http://localhost:5173
 - [ ] Screen sharing in calls
 - [ ] In-app language exercises / flashcards
 - [ ] Mobile app (React Native)
-- [ ] Dark / light mode toggle
+- [ ] Simple light / dark mode toggle (multiple themes already available)
 - [ ] WebRTC fallback when Stream is unavailable
 
 ---
